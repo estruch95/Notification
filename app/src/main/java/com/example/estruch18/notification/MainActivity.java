@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.graphics.BitmapFactory;
+import android.media.audiofx.BassBoost;
+import android.media.audiofx.EnvironmentalReverb;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,6 +61,10 @@ public class MainActivity extends Activity {
                 //Small Icon
                 notificacion.setSmallIcon(R.drawable.advertencia);
                 notificacion.setContentText("Esta notificación es empleada para modo pruebas");
+                //Sonido  de la notificación
+                notificacion.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
+                //Vibración de la notificación
+                notificacion.setVibrate(new long[]{1000,1000});
 
                 //Creamos un objeto NotificationManager (llama al servicio de notificaciones)
                 NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
